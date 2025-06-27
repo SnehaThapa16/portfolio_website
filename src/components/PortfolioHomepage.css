@@ -1,0 +1,1839 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+/* Container */
+.portfolio-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #faf5ff 0%, #eff6ff 50%, #e0e7ff 100%);
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  position: sticky;
+}
+
+.logo {
+  font-size: 1.500rem;
+  font-weight: 680;
+  color: #1f2937;
+  font-family: myfont2;
+}
+@font-face {
+    font-family:myfont2;
+    src:url(fonts/sunshine.otf);
+}
+
+.navigation {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #374151;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #7c3aed;
+}
+
+.nav-underline {
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  width: 0;
+  height: 0.125rem;
+  background-color: #7c3aed;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover .nav-underline {
+  width: 100%;
+}
+
+/* Main Content - Two column layout */
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6rem 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  gap: 4rem;
+}
+
+/* Introduction Section - Now includes social icons */
+.intro-section {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.main-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.intro-text {
+  font-size: 1.25rem;
+  color: #4b5563;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Social Icons - Now in intro section */
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-link {
+  position: relative;
+  padding: 1rem;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.25rem);
+}
+
+.social-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.1);
+}
+
+.social-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.linkedin .social-icon {
+  color: #2563eb;
+}
+
+.linkedin .social-overlay {
+  background-color: #2563eb;
+}
+
+.github .social-icon {
+  color: #1f2937;
+}
+
+.github .social-overlay {
+  background-color: #1f2937;
+}
+
+.email .social-icon {
+  color: #ef4444;
+}
+
+.email .social-overlay {
+  background-color: #ef4444;
+}
+
+.social-link:hover .social-overlay {
+  opacity: 0.1;
+}
+
+/* Photo Section */
+.photo-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.photo-container {
+  position: relative;
+  width: 28rem;
+  height: 28rem;
+}
+
+.photo-wrapper {
+  position: relative;
+  z-index: 5; /* Changed from 10 to 5 */
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 4px solid white;
+  margin: 4rem auto;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.05);
+}
+
+/* MAGICAL PARTICLE SYSTEM - ENHANCED */
+.particle-system {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 15; /* Added z-index to appear above photo */
+}
+
+/* Large Sparkle Stars */
+.sparkle-large {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: radial-gradient(circle, #fbbf24 0%, #f59e0b 50%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkle-twinkle 3s ease-in-out infinite;
+}
+
+.sparkle-large::before,
+.sparkle-large::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 0.8rem;
+  background: linear-gradient(to bottom, transparent, #fbbf24, transparent);
+  transform: translate(-50%, -50%);
+}
+
+.sparkle-large::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* Medium Particles */
+.particle-medium {
+  position: absolute;
+  width: 0.25rem;
+  height: 0.25rem;
+  background: radial-gradient(circle, #a855f7 0%, #8b5cf6 50%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+/* Small Dust Particles */
+.particle-small {
+  position: absolute;
+  width: 0.125rem;
+  height: 0.125rem;
+  background: radial-gradient(circle, #ec4899 0%, #db2777 50%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: dust-dance 5s linear infinite;
+}
+
+/* Tiny Glitter */
+.glitter-tiny {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  background: #fbbf24;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: glitter-shimmer 2s ease-in-out infinite;
+}
+
+/* NEW: Small Moving Stars */
+.moving-star {
+  position: absolute;
+  width: 0.1875rem;
+  height: 0.1875rem;
+  background: #f8fafc;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  opacity: 0.7;
+  animation: star-drift 6s linear infinite;
+}
+
+/* NEW: Micro Stars */
+.micro-star {
+  position: absolute;
+  width: 0.09375rem;
+  height: 0.09375rem;
+  background: #e2e8f0;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  opacity: 0.5;
+  animation: micro-twinkle 4s ease-in-out infinite;
+}
+
+/* NEW: Floating Orbs */
+.floating-orb {
+  position: absolute;
+  width: 0.3125rem;
+  height: 0.3125rem;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #a855f7, transparent);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: orb-float 7s ease-in-out infinite;
+}
+
+/* NEW: Energy Dots */
+.energy-dot {
+  position: absolute;
+  width: 0.15625rem;
+  height: 0.15625rem;
+  background: linear-gradient(45deg, #06b6d4, #3b82f6);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: energy-pulse 3s ease-in-out infinite;
+}
+
+/* NEW: Cosmic Dust */
+.cosmic-dust {
+  position: absolute;
+  width: 0.046875rem;
+  height: 0.046875rem;
+  background: #cbd5e1;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: dust-swirl 8s linear infinite;
+}
+
+/* Tech-inspired Geometric Particles */
+.tech-particle {
+  position: absolute;
+  width: 0.375rem;
+  height: 0.375rem;
+  background: linear-gradient(45deg, #3b82f6, #06b6d4);
+  opacity: 0.6;
+  animation: tech-pulse 3.5s ease-in-out infinite;
+}
+
+.tech-particle.diamond {
+  transform: rotate(45deg);
+}
+
+.tech-particle.triangle {
+  width: 0;
+  height: 0;
+  background: none;
+  border-left: 0.1875rem solid transparent;
+  border-right: 0.1875rem solid transparent;
+  border-bottom: 0.325rem solid #06b6d4;
+}
+
+/* NEW: Code Symbols */
+.code-symbol {
+  position: absolute;
+  font-size: 0.25rem;
+  color: #64748b;
+  opacity: 0.4;
+  font-family: "Courier New", monospace;
+  animation: code-drift 9s linear infinite;
+}
+
+/* NEW: Revolving Elements */
+.revolving-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20; /* Added z-index to appear above everything */
+}
+
+.orbit-ring-1 {
+  position: absolute;
+  inset: 0;
+  animation: orbit-clockwise 20s linear infinite;
+}
+
+.orbit-ring-2 {
+  position: absolute;
+  inset: 0;
+  animation: orbit-counter-clockwise 25s linear infinite;
+}
+
+.orbit-ring-3 {
+  position: absolute;
+  inset: 0;
+  animation: orbit-clockwise 30s linear infinite;
+}
+
+.orbit-ring-4 {
+  position: absolute;
+  inset: 0;
+  animation: orbit-counter-clockwise 35s linear infinite;
+}
+
+/* NEW: Hexagon Particles */
+.hex-particle {
+  position: absolute;
+  width: 0.25rem;
+  height: 0.25rem;
+  background: linear-gradient(45deg, #10b981, #059669);
+  clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+  opacity: 0.7;
+  animation: hex-spin 4s ease-in-out infinite;
+}
+
+/* NEW: Plus Signs */
+.plus-particle {
+  position: absolute;
+  width: 0.1875rem;
+  height: 0.1875rem;
+  opacity: 0.6;
+  animation: plus-rotate 5s linear infinite;
+}
+
+.plus-particle::before,
+.plus-particle::after {
+  content: "";
+  position: absolute;
+  background: #f59e0b;
+}
+
+.plus-particle::before {
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+.plus-particle::after {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+/* NEW: Ring Particles */
+.ring-particle {
+  position: absolute;
+  width: 0.3125rem;
+  height: 0.3125rem;
+  border: 1px solid #8b5cf6;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: ring-pulse 3s ease-in-out infinite;
+}
+
+/* NEW: Arrow Particles */
+.arrow-particle {
+  position: absolute;
+  width: 0.25rem;
+  height: 0.25rem;
+  opacity: 0.6;
+  animation: arrow-drift 6s ease-in-out infinite;
+}
+
+.arrow-particle::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 0.125rem solid transparent;
+  border-right: 0.125rem solid transparent;
+  border-bottom: 0.25rem solid #06b6d4;
+}
+
+/* NEW: Sparkle Cross */
+.sparkle-cross {
+  position: absolute;
+  width: 0.375rem;
+  height: 0.375rem;
+  opacity: 0.8;
+  animation: cross-sparkle 4s ease-in-out infinite;
+}
+
+.sparkle-cross::before,
+.sparkle-cross::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  border-radius: 1px;
+}
+
+.sparkle-cross::before {
+  width: 100%;
+  height: 2px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.sparkle-cross::after {
+  width: 100%;
+  height: 2px;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* NEW: Dot Clusters */
+.dot-cluster {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  opacity: 0.6;
+  animation: cluster-float 7s ease-in-out infinite;
+}
+
+.dot-cluster::before,
+.dot-cluster::after {
+  content: "";
+  position: absolute;
+  width: 0.09375rem;
+  height: 0.09375rem;
+  background: #ec4899;
+  border-radius: 50%;
+}
+
+.dot-cluster::before {
+  top: 0;
+  left: 0;
+}
+
+.dot-cluster::after {
+  bottom: 0;
+  right: 0;
+}
+
+/* NEW: Lightning Bolts */
+.lightning-particle {
+  position: absolute;
+  width: 0.1875rem;
+  height: 0.375rem;
+  opacity: 0.7;
+  animation: lightning-flash 3s ease-in-out infinite;
+}
+
+.lightning-particle::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 0.09375rem solid transparent;
+  border-right: 0.09375rem solid #eab308;
+  border-top: 0.1875rem solid #eab308;
+}
+
+.lightning-particle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 0.09375rem solid #eab308;
+  border-right: 0.09375rem solid transparent;
+  border-bottom: 0.1875rem solid #eab308;
+}
+
+/* Revolving Element Positioning */
+.revolving-hex-1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.revolving-hex-2 {
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
+}
+
+.revolving-hex-3 {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.revolving-hex-4 {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
+}
+
+.revolving-plus-1 {
+  position: absolute;
+  top: 30%;
+  right: 25%;
+}
+
+.revolving-plus-2 {
+  position: absolute;
+  bottom: 30%;
+  left: 25%;
+}
+
+.revolving-plus-3 {
+  position: absolute;
+  top: 70%;
+  right: 35%;
+}
+
+.revolving-plus-4 {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+}
+
+.revolving-ring-1 {
+  position: absolute;
+  top: 25%;
+  right: 20%;
+}
+
+.revolving-ring-2 {
+  position: absolute;
+  bottom: 25%;
+  left: 20%;
+}
+
+.revolving-ring-3 {
+  position: absolute;
+  top: 75%;
+  right: 30%;
+}
+
+.revolving-arrow-1 {
+  position: absolute;
+  top: 35%;
+  right: 30%;
+}
+
+.revolving-arrow-2 {
+  position: absolute;
+  bottom: 35%;
+  left: 30%;
+}
+
+.revolving-cross-1 {
+  position: absolute;
+  top: 15%;
+  right: 40%;
+}
+
+.revolving-cross-2 {
+  position: absolute;
+  bottom: 15%;
+  left: 40%;
+}
+
+/* NEW: Revolving Star Icons */
+.revolving-star-1 {
+  position: absolute;
+  top: 10%;
+  right: 30%;
+}
+
+.revolving-star-2 {
+  position: absolute;
+  bottom: 15%;
+  left: 35%;
+}
+
+.revolving-star-3 {
+  position: absolute;
+  top: 65%;
+  right: 20%;
+}
+
+.revolving-star-4 {
+  position: absolute;
+  top: 35%;
+  left: 15%;
+}
+
+.revolving-star-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #fbbf24;
+  opacity: 0.8;
+  animation: star-revolve-twinkle 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.6));
+  z-index: 25; /* Added for maximum visibility */
+}
+
+/* NEW: Revolving Settings Icons */
+.revolving-settings-1 {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+}
+
+.revolving-settings-2 {
+  position: absolute;
+  bottom: 40%;
+  left: 10%;
+}
+
+.revolving-settings-3 {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+}
+
+.revolving-settings-4 {
+  position: absolute;
+  bottom: 20%;
+  right: 35%;
+}
+
+.revolving-settings-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: #8b5cf6;
+  opacity: 0.7;
+  animation: settings-revolve-spin 3s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.5));
+  z-index: 25; /* Added for maximum visibility */
+}
+
+/* Additional Static Particles Positioning */
+.static-cluster-1 {
+  top: 5%;
+  right: 10%;
+}
+
+.static-cluster-2 {
+  top: 85%;
+  left: 10%;
+}
+
+.static-cluster-3 {
+  top: 45%;
+  right: 5%;
+}
+
+.static-cluster-4 {
+  top: 45%;
+  left: 5%;
+}
+
+.static-lightning-1 {
+  top: 10%;
+  left: 60%;
+}
+
+.static-lightning-2 {
+  bottom: 10%;
+  right: 60%;
+}
+
+.static-lightning-3 {
+  top: 60%;
+  left: 70%;
+}
+
+.static-lightning-4 {
+  bottom: 60%;
+  right: 70%;
+}
+
+/* ENHANCED PARTICLE POSITIONING - More Dense Distribution */
+.sparkle-large:nth-child(1) {
+  top: 15%;
+  right: 20%;
+  animation-delay: 0s;
+}
+.sparkle-large:nth-child(2) {
+  top: 25%;
+  left: 10%;
+  animation-delay: 1s;
+}
+.sparkle-large:nth-child(3) {
+  bottom: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+.sparkle-large:nth-child(4) {
+  bottom: 30%;
+  left: 25%;
+  animation-delay: 0.5s;
+}
+.sparkle-large:nth-child(5) {
+  top: 40%;
+  right: 5%;
+  animation-delay: 1.5s;
+}
+.sparkle-large:nth-child(6) {
+  top: 60%;
+  left: 8%;
+  animation-delay: 2.5s;
+}
+.sparkle-large:nth-child(7) {
+  top: 8%;
+  left: 35%;
+  animation-delay: 0.8s;
+}
+.sparkle-large:nth-child(8) {
+  bottom: 12%;
+  right: 35%;
+  animation-delay: 1.8s;
+}
+
+.particle-medium:nth-child(9) {
+  top: 10%;
+  left: 30%;
+  animation-delay: 0.3s;
+}
+.particle-medium:nth-child(10) {
+  top: 35%;
+  right: 25%;
+  animation-delay: 1.3s;
+}
+.particle-medium:nth-child(11) {
+  bottom: 15%;
+  left: 35%;
+  animation-delay: 2.3s;
+}
+.particle-medium:nth-child(12) {
+  bottom: 45%;
+  right: 30%;
+  animation-delay: 0.8s;
+}
+.particle-medium:nth-child(13) {
+  top: 50%;
+  left: 15%;
+  animation-delay: 1.8s;
+}
+.particle-medium:nth-child(14) {
+  top: 70%;
+  right: 10%;
+  animation-delay: 2.8s;
+}
+.particle-medium:nth-child(15) {
+  top: 18%;
+  right: 40%;
+  animation-delay: 0.6s;
+}
+.particle-medium:nth-child(16) {
+  bottom: 25%;
+  left: 45%;
+  animation-delay: 1.6s;
+}
+
+.particle-small:nth-child(17) {
+  top: 8%;
+  left: 45%;
+  animation-delay: 0.2s;
+}
+.particle-small:nth-child(18) {
+  top: 22%;
+  right: 35%;
+  animation-delay: 1.2s;
+}
+.particle-small:nth-child(19) {
+  top: 45%;
+  left: 5%;
+  animation-delay: 2.2s;
+}
+.particle-small:nth-child(20) {
+  bottom: 25%;
+  right: 40%;
+  animation-delay: 0.7s;
+}
+.particle-small:nth-child(21) {
+  bottom: 10%;
+  left: 20%;
+  animation-delay: 1.7s;
+}
+.particle-small:nth-child(22) {
+  top: 65%;
+  right: 45%;
+  animation-delay: 2.7s;
+}
+.particle-small:nth-child(23) {
+  top: 32%;
+  left: 42%;
+  animation-delay: 0.4s;
+}
+.particle-small:nth-child(24) {
+  bottom: 38%;
+  right: 8%;
+  animation-delay: 1.4s;
+}
+
+.moving-star:nth-child(25) {
+  top: 12%;
+  right: 28%;
+  animation-delay: 0.1s;
+}
+.moving-star:nth-child(26) {
+  top: 28%;
+  left: 18%;
+  animation-delay: 1.1s;
+}
+.moving-star:nth-child(27) {
+  bottom: 18%;
+  right: 32%;
+  animation-delay: 2.1s;
+}
+.moving-star:nth-child(28) {
+  bottom: 35%;
+  left: 38%;
+  animation-delay: 0.6s;
+}
+.moving-star:nth-child(29) {
+  top: 55%;
+  right: 12%;
+  animation-delay: 1.6s;
+}
+.moving-star:nth-child(30) {
+  top: 75%;
+  left: 22%;
+  animation-delay: 2.6s;
+}
+.moving-star:nth-child(31) {
+  top: 38%;
+  left: 48%;
+  animation-delay: 0.9s;
+}
+.moving-star:nth-child(32) {
+  bottom: 48%;
+  right: 22%;
+  animation-delay: 1.9s;
+}
+
+.micro-star:nth-child(33) {
+  top: 6%;
+  left: 52%;
+  animation-delay: 0.15s;
+}
+.micro-star:nth-child(34) {
+  top: 26%;
+  right: 48%;
+  animation-delay: 1.15s;
+}
+.micro-star:nth-child(35) {
+  bottom: 16%;
+  left: 48%;
+  animation-delay: 2.15s;
+}
+.micro-star:nth-child(36) {
+  bottom: 32%;
+  right: 52%;
+  animation-delay: 0.65s;
+}
+.micro-star:nth-child(37) {
+  top: 52%;
+  left: 6%;
+  animation-delay: 1.65s;
+}
+.micro-star:nth-child(38) {
+  top: 72%;
+  right: 6%;
+  animation-delay: 2.65s;
+}
+.micro-star:nth-child(39) {
+  top: 42%;
+  right: 55%;
+  animation-delay: 0.35s;
+}
+.micro-star:nth-child(40) {
+  bottom: 52%;
+  left: 55%;
+  animation-delay: 1.35s;
+}
+
+.floating-orb:nth-child(41) {
+  top: 20%;
+  left: 55%;
+  animation-delay: 0.25s;
+}
+.floating-orb:nth-child(42) {
+  top: 48%;
+  right: 18%;
+  animation-delay: 1.25s;
+}
+.floating-orb:nth-child(43) {
+  bottom: 28%;
+  left: 12%;
+  animation-delay: 2.25s;
+}
+.floating-orb:nth-child(44) {
+  bottom: 58%;
+  right: 25%;
+  animation-delay: 0.75s;
+}
+
+.energy-dot:nth-child(45) {
+  top: 14%;
+  left: 25%;
+  animation-delay: 0.05s;
+}
+.energy-dot:nth-child(46) {
+  top: 36%;
+  right: 42%;
+  animation-delay: 1.05s;
+}
+.energy-dot:nth-child(47) {
+  bottom: 22%;
+  left: 28%;
+  animation-delay: 2.05s;
+}
+.energy-dot:nth-child(48) {
+  bottom: 42%;
+  right: 15%;
+  animation-delay: 0.55s;
+}
+.energy-dot:nth-child(49) {
+  top: 58%;
+  left: 32%;
+  animation-delay: 1.55s;
+}
+.energy-dot:nth-child(50) {
+  top: 78%;
+  right: 32%;
+  animation-delay: 2.55s;
+}
+
+.cosmic-dust:nth-child(51) {
+  top: 4%;
+  left: 15%;
+  animation-delay: 0.1s;
+}
+.cosmic-dust:nth-child(52) {
+  top: 16%;
+  right: 12%;
+  animation-delay: 1.1s;
+}
+.cosmic-dust:nth-child(53) {
+  top: 24%;
+  left: 55%;
+  animation-delay: 2.1s;
+}
+.cosmic-dust:nth-child(54) {
+  bottom: 8%;
+  right: 55%;
+  animation-delay: 0.6s;
+}
+.cosmic-dust:nth-child(55) {
+  bottom: 14%;
+  left: 8%;
+  animation-delay: 1.6s;
+}
+.cosmic-dust:nth-child(56) {
+  top: 68%;
+  right: 8%;
+  animation-delay: 2.6s;
+}
+.cosmic-dust:nth-child(57) {
+  top: 84%;
+  left: 45%;
+  animation-delay: 0.3s;
+}
+.cosmic-dust:nth-child(58) {
+  bottom: 4%;
+  left: 45%;
+  animation-delay: 1.3s;
+}
+
+.glitter-tiny:nth-child(59) {
+  top: 12%;
+  left: 50%;
+  animation-delay: 0.1s;
+}
+.glitter-tiny:nth-child(60) {
+  top: 28%;
+  right: 50%;
+  animation-delay: 1.1s;
+}
+.glitter-tiny:nth-child(61) {
+  bottom: 18%;
+  left: 50%;
+  animation-delay: 2.1s;
+}
+.glitter-tiny:nth-child(62) {
+  bottom: 35%;
+  right: 50%;
+  animation-delay: 0.6s;
+}
+.glitter-tiny:nth-child(63) {
+  top: 55%;
+  left: 12%;
+  animation-delay: 1.6s;
+}
+.glitter-tiny:nth-child(64) {
+  top: 75%;
+  right: 12%;
+  animation-delay: 2.6s;
+}
+.glitter-tiny:nth-child(65) {
+  top: 35%;
+  left: 58%;
+  animation-delay: 0.4s;
+}
+.glitter-tiny:nth-child(66) {
+  bottom: 55%;
+  right: 58%;
+  animation-delay: 1.4s;
+}
+
+.tech-particle:nth-child(67) {
+  top: 18%;
+  left: 40%;
+  animation-delay: 0.4s;
+}
+.tech-particle:nth-child(68) {
+  top: 42%;
+  right: 20%;
+  animation-delay: 1.4s;
+}
+.tech-particle:nth-child(69) {
+  bottom: 22%;
+  left: 40%;
+  animation-delay: 2.4s;
+}
+.tech-particle:nth-child(70) {
+  bottom: 50%;
+  right: 35%;
+  animation-delay: 0.9s;
+}
+
+.code-symbol:nth-child(71) {
+  top: 30%;
+  left: 65%;
+  animation-delay: 0.2s;
+}
+.code-symbol:nth-child(72) {
+  top: 65%;
+  right: 65%;
+  animation-delay: 1.2s;
+}
+.code-symbol:nth-child(73) {
+  bottom: 65%;
+  left: 65%;
+  animation-delay: 2.2s;
+}
+.code-symbol:nth-child(74) {
+  bottom: 30%;
+  right: 65%;
+  animation-delay: 0.7s;
+}
+
+/* Enhanced Background Glow */
+.background-glow {
+  position: absolute;
+  inset: -4rem;
+  background: radial-gradient(
+    circle,
+    rgba(251, 191, 36, 0.1) 0%,
+    rgba(168, 85, 247, 0.08) 30%,
+    rgba(59, 130, 246, 0.06) 60%,
+    rgba(236, 72, 153, 0.04) 80%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  z-index: -1; /* Keep this behind everything */
+  animation: cosmic-breathe 10s ease-in-out infinite;
+}
+
+/* Beautiful Animations */
+@keyframes sparkle-twinkle {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.2) rotate(90deg);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.8) rotate(180deg);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1.1) rotate(270deg);
+  }
+}
+
+@keyframes float-gentle {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateY(-15px) translateX(5px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-8px) translateX(-3px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateY(-20px) translateX(8px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes dust-dance {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-10px) rotate(90deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-5px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-15px) rotate(270deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes glitter-shimmer {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes star-drift {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateY(-12px) translateX(8px) rotate(90deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-6px) translateX(-5px) rotate(180deg);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateY(-18px) translateX(12px) rotate(270deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(360deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes micro-twinkle {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  33% {
+    opacity: 0.8;
+    transform: scale(1.3);
+  }
+  66% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes orb-float {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translateY(-10px) scale(0.9);
+    opacity: 0.4;
+  }
+}
+
+@keyframes energy-pulse {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes dust-swirl {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateX(5px) translateY(-8px) rotate(90deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-3px) translateY(-4px) rotate(180deg);
+    opacity: 0.2;
+  }
+  75% {
+    transform: translateX(8px) translateY(-12px) rotate(270deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes tech-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.3);
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes code-drift {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translateY(-8px) translateX(3px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-4px) translateX(-2px);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateY(-12px) translateX(5px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes cosmic-breathe {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.1) rotate(180deg);
+  }
+}
+
+/* New Animation Keyframes */
+@keyframes orbit-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-counter-clockwise {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes hex-spin {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+    opacity: 0.9;
+  }
+}
+
+@keyframes plus-rotate {
+  from {
+    transform: rotate(0deg);
+    opacity: 0.6;
+  }
+  to {
+    transform: rotate(360deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes ring-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+    border-color: #8b5cf6;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.8;
+    border-color: #a855f7;
+  }
+}
+
+@keyframes arrow-drift {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-10px) rotate(90deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-5px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-15px) rotate(270deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes cross-sparkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: scale(1.2) rotate(90deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.8) rotate(180deg);
+    opacity: 0.6;
+  }
+  75% {
+    transform: scale(1.1) rotate(270deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes cluster-float {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translateY(-12px) scale(1.1);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translateY(-6px) scale(0.9);
+    opacity: 0.4;
+  }
+}
+
+@keyframes lightning-flash {
+  0%,
+  90%,
+  100% {
+    opacity: 0.7;
+    filter: brightness(1);
+  }
+  5%,
+  15% {
+    opacity: 1;
+    filter: brightness(2);
+  }
+}
+
+/* NEW: Revolving Icon Animations */
+@keyframes star-revolve-twinkle {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.6));
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.2) rotate(90deg);
+    filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.8));
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.9) rotate(180deg);
+    filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.4));
+  }
+  75% {
+    opacity: 0.9;
+    transform: scale(1.1) rotate(270deg);
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.7));
+  }
+}
+
+@keyframes settings-revolve-spin {
+  from {
+    transform: rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.7));
+  }
+  to {
+    transform: rotate(360deg);
+    opacity: 0.7;
+  }
+}
+
+/* Mobile-First Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+    padding: 4rem 1.5rem;
+  }
+
+  .intro-section {
+    padding-right: 0;
+    max-width: 100%;
+    order: 1;
+  }
+
+  .photo-section {
+    padding-left: 0;
+    order: 2;
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-top: 2rem;
+    order: 3;
+  }
+
+  .portfolio-container {
+    padding: 0;
+  }
+
+  .header {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .navigation {
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .main-heading {
+    font-size: 2.25rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .intro-text {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+    line-height: 1.7;
+  }
+
+  .social-link {
+    padding: 0.875rem;
+  }
+
+  .social-icon {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
+
+  .photo-container {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .photo-wrapper {
+    width: 14rem;
+    height: 14rem;
+    margin: 3rem auto;
+  }
+
+  /* Scale particles for mobile */
+  .sparkle-large {
+    width: 0.375rem;
+    height: 0.375rem;
+  }
+
+  .particle-medium {
+    width: 0.1875rem;
+    height: 0.1875rem;
+  }
+
+  .particle-small {
+    width: 0.09375rem;
+    height: 0.09375rem;
+  }
+
+  .moving-star {
+    width: 0.140625rem;
+    height: 0.140625rem;
+  }
+
+  .micro-star {
+    width: 0.0703125rem;
+    height: 0.0703125rem;
+  }
+
+  .floating-orb {
+    width: 0.234375rem;
+    height: 0.234375rem;
+  }
+
+  .energy-dot {
+    width: 0.1171875rem;
+    height: 0.1171875rem;
+  }
+
+  .tech-particle {
+    width: 0.25rem;
+    height: 0.25rem;
+  }
+
+  /* Scale revolving icons for mobile */
+  .revolving-star-icon {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  .revolving-settings-icon {
+    width: 0.65625rem;
+    height: 0.65625rem;
+  }
+}
+
+/* Phone Screens (480px and below) */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .navigation {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .main-content {
+    padding: 2rem 1rem;
+    gap: 2.5rem;
+  }
+
+  .main-heading {
+    font-size: 1.875rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .social-icons {
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .social-link {
+    padding: 0.75rem;
+  }
+
+  .social-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .photo-container {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .photo-wrapper {
+    width: 12rem;
+    height: 12rem;
+    margin: 2.5rem auto;
+  }
+
+  .revolving-star-icon {
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+
+  .revolving-settings-icon {
+    width: 0.546875rem;
+    height: 0.546875rem;
+  }
+}
+
+/* Extra Small Phones (375px and below) */
+@media (max-width: 375px) {
+  .header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .main-content {
+    padding: 1.5rem 0.75rem;
+    gap: 2rem;
+  }
+
+  .main-heading {
+    font-size: 1.625rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .intro-text {
+    font-size: 0.9375rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-icons {
+    gap: 0.875rem;
+    margin-top: 1.25rem;
+  }
+
+  .social-link {
+    padding: 0.625rem;
+  }
+
+  .social-icon {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .photo-container {
+    width: 14rem;
+    height: 14rem;
+  }
+
+  .photo-wrapper {
+    width: 10rem;
+    height: 10rem;
+    margin: 1.25rem auto;
+  }
+}
+
+/* Very Small Phones (320px and below) */
+@media (max-width: 320px) {
+  .main-content {
+    padding: 1.25rem 0.5rem;
+    gap: 1.75rem;
+  }
+
+  .main-heading {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .intro-text {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-icons {
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .social-link {
+    padding: 0.5rem;
+  }
+
+  .social-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .photo-container {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .photo-wrapper {
+    width: 9rem;
+    height: 9rem;
+    margin: 1rem auto;
+  }
+}
