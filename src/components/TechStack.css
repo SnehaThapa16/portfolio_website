@@ -1,10 +1,21 @@
+/* Global Smooth Scrolling */
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
 /* Tech Stack Section */
 .tech-stack-section {
-  padding: 8rem 2rem;
+  padding: 2.8rem 2rem;
   background: linear-gradient(135deg, #faf5ff 0%, #eff6ff 50%, #e0e7ff 100%);
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 60vh;
+  scroll-behavior: smooth;
 }
 
 .tech-stack-container {
@@ -95,15 +106,19 @@
   background: linear-gradient(to left, #faf5ff, transparent);
 }
 
+/* Enhanced smooth scrolling for the horizontal track */
 .tech-stack-track {
   display: flex;
   gap: 2rem;
   animation: scroll-horizontal 40s linear infinite;
   width: fit-content;
+  scroll-behavior: smooth;
+  transition: transform 0.3s ease;
 }
 
 .tech-stack-track:hover {
   animation-play-state: paused;
+  transform: translateX(0);
 }
 
 /* Tech Cards */
