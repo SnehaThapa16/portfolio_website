@@ -47,8 +47,8 @@ const ProjectGallery = () => {
         "A modern, responsive portfolio website showcasing my skills and projects with smooth animations and interactive elements.",
       image: "images/portfolio.png",
       technologies: ["React", "CSS3", "JavaScript", "Figma"],
-      liveLink: "https://your-portfolio-link.com",
-      githubLink: "https://github.com/your-username/portfolio",
+      liveLink: "https://snehathapa-portfolio.netlify.app/",
+      githubLink: "https://github.com/SnehaThapa16/portfolio_website",
       category: "Frontend",
     },
   ]
